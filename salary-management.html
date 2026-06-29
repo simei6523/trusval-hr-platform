@@ -636,5 +636,12 @@ function updateNav(moduleId) {
   document.getElementById('dots-' + moduleId).querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === cur));
 }
 </script>
+
+  <script>
+    function doLogout() {
+      sessionStorage.removeItem('trusval_auth');
+      window.location.href = 'login.html';
+    }
+  </script>
 </body>
 </html>
