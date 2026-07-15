@@ -137,10 +137,28 @@
     .sidebar__logout:hover { background: rgba(200,168,75,0.3); }
   </style>
   <style>
-    .page-coming { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; min-height:500px; color:var(--gray); gap:1rem; }
-    .page-coming .icon { font-size:3.5rem; opacity:0.4; }
-    .page-coming h2 { font-size:1.3rem; color:var(--dark); font-weight:600; margin:0; }
-    .page-coming p { font-size:0.9rem; opacity:0.7; text-align:center; max-width:360px; line-height:1.7; margin:0; }
+    .doc-page { padding: 3rem 3.5rem; }
+    .doc-page__header { margin-bottom: 2.5rem; }
+    .doc-page__badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.75rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); background: linear-gradient(135deg, var(--gold-pale) 0%, #fff 100%); border: 1px solid rgba(201,162,39,0.3); border-radius: 2px; margin-bottom: 1rem; }
+    .doc-page__badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+    .doc-page__title { font-size: 1.8rem; font-weight: 800; color: var(--blue); margin-bottom: 0.6rem; }
+    .doc-page__subtitle { font-size: 1rem; color: var(--gray); padding-left: 1rem; border-left: 3px solid var(--gold); line-height: 1.7; }
+    .doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 960px; }
+    @media (max-width: 768px) { .doc-grid { grid-template-columns: 1fr; } .doc-page { padding: 2rem 1.5rem; } }
+    .doc-card { background: #fff; border: 1px solid var(--gray-light); border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; box-shadow: 0 2px 12px rgba(26,58,92,0.06); transition: box-shadow 0.2s, transform 0.2s; }
+    .doc-card:hover { box-shadow: 0 6px 24px rgba(26,58,92,0.12); transform: translateY(-2px); }
+    .doc-card__icon-wrap { width: 52px; height: 52px; border-radius: 10px; background: linear-gradient(135deg, #e8f0f8, #c8daf0); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
+    .doc-card__tag { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); background: var(--gold-pale); border: 1px solid rgba(201,162,39,0.2); border-radius: 3px; padding: 0.15rem 0.5rem; }
+    .doc-card__size { font-size: 0.7rem; color: rgba(90,106,122,0.6); }
+    .doc-card__title { font-size: 1rem; font-weight: 700; color: var(--blue); line-height: 1.5; }
+    .doc-card__desc { font-size: 0.85rem; color: var(--gray); line-height: 1.7; flex: 1; }
+    .doc-card__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .doc-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.1rem; border-radius: 6px; font-size: 0.82rem; font-weight: 600; font-family: inherit; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; }
+    .doc-btn--primary { background: linear-gradient(135deg, var(--blue), var(--blue-light)); color: #fff; }
+    .doc-btn--primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .doc-btn--outline { background: transparent; color: var(--blue); border: 1.5px solid var(--gray-light); }
+    .doc-btn--outline:hover { background: var(--blue-pale); border-color: var(--blue); }
   </style>
 </head>
 <body>
@@ -183,11 +201,74 @@
         <button class="sidebar__logout" onclick="doLogout()">⏏ 登　出</button>
       </div>
     </aside>
-    <main class="main" style="display:flex; align-items:center; justify-content:center;">
-      <div class="page-coming">
-        <div class="icon">📋</div>
-        <h2>專案規劃</h2>
-        <p>2026 PROJECT PLAN<br>此頁面內容建置中，請稍後查看。</p>
+    <main class="main">
+      <div class="doc-page">
+        <div class="doc-page__header">
+          <div class="doc-page__badge">
+            <span class="doc-page__badge-dot"></span>
+            2026 PROJECT PLAN
+          </div>
+          <h1 class="doc-page__title">📋 專案規劃</h1>
+          <p class="doc-page__subtitle">本區提供信紘科技 HR 輔導專案相關規劃文件，供同仁線上閱覽或下載參考。</p>
+        </div>
+
+        <div class="doc-grid">
+
+          <!-- 文件一 -->
+          <div class="doc-card">
+            <div class="doc-card__icon-wrap">📊</div>
+            <div>
+              <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;">
+                <span class="doc-card__tag">組織設計</span>
+                <span class="doc-card__size">2.06 MB・PDF</span>
+              </div>
+              <div class="doc-card__title">信紘科技_全球組織設計建議</div>
+            </div>
+            <div class="doc-card__desc">
+              針對信紘科技全球擴張階段的組織架構診斷與重新設計建議，涵蓋台灣總部與美國、日本、泰國各海外據點的組織架構、管理幅度及職權定義規劃。
+            </div>
+            <div class="doc-card__actions">
+              <a class="doc-btn doc-btn--primary"
+                 href="信紘科技_全球組織設計建議.pdf"
+                 target="_blank">
+                👁 線上預覽
+              </a>
+              <a class="doc-btn doc-btn--outline"
+                 href="信紘科技_全球組織設計建議.pdf"
+                 download>
+                ⬇ 下載
+              </a>
+            </div>
+          </div>
+
+          <!-- 文件二 -->
+          <div class="doc-card">
+            <div class="doc-card__icon-wrap">📅</div>
+            <div>
+              <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;">
+                <span class="doc-card__tag">執行計畫</span>
+                <span class="doc-card__size">1.06 MB・PDF</span>
+              </div>
+              <div class="doc-card__title">信紘科技人力資源專案提案半年期計畫</div>
+            </div>
+            <div class="doc-card__desc">
+              HR 輔導專案 2026 年上半年執行計畫，包含各輔導模組時程安排、里程碑規劃、顧問訪談排程與成果交付項目說明。
+            </div>
+            <div class="doc-card__actions">
+              <a class="doc-btn doc-btn--primary"
+                 href="信紘科技人力資源專案提案半年期計畫_20260601.pdf"
+                 target="_blank">
+                👁 線上預覽
+              </a>
+              <a class="doc-btn doc-btn--outline"
+                 href="信紘科技人力資源專案提案半年期計畫_20260601.pdf"
+                 download>
+                ⬇ 下載
+              </a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </main>
   </div>
