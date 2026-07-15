@@ -185,16 +185,31 @@
     </div>
   </div>
   <nav class="sidebar__nav" aria-label="課程導覽">
-    <div class="sidebar__nav-label">專案模組</div>
-    <ul class="sidebar__nav-list">
-      <li class="sidebar__nav-item"><a href="index.html"><span class="sidebar__nav-icon"></span>專案首頁</a></li>
-      <li class="sidebar__nav-item sidebar__nav-item--active"><a href="organization-management.html"><span class="sidebar__nav-icon"></span>組織診斷</a></li>
-      <li class="sidebar__nav-item"><a href="organization-design.html"><span class="sidebar__nav-icon"></span>組織設計</a></li>
-      <li class="sidebar__nav-item"><a href="salary-management.html"><span class="sidebar__nav-icon"></span>薪酬管理</a></li>
-      <li class="sidebar__nav-item"><a href="salary-design.html"><span class="sidebar__nav-icon"></span>薪酬設計</a></li>
-      <li class="sidebar__nav-item"><a href="performance.html"><span class="sidebar__nav-icon"></span>績效評估制度</a></li>
-    </ul>
-  </nav>
+        <div class="sidebar__nav-label">專案模組</div>
+        <ul class="sidebar__nav-list">
+          <li class="sidebar__nav-item "><a href="index.html"><span class="sidebar__nav-icon"></span>專案首頁</a></li>
+          <li class="sidebar__nav-item sidebar__nav-item--active"><a href="organization-management.html"><span class="sidebar__nav-icon"></span>組織診斷</a></li>
+          <li class="sidebar__nav-item "><a href="organization-design.html"><span class="sidebar__nav-icon"></span>組織設計</a></li>
+          <li class="sidebar__nav-item "><a href="salary-management.html"><span class="sidebar__nav-icon"></span>薪酬管理</a></li>
+          <li class="sidebar__nav-item "><a href="salary-design.html"><span class="sidebar__nav-icon"></span>薪酬設計</a></li>
+          <li class="sidebar__nav-item "><a href="performance.html"><span class="sidebar__nav-icon"></span>績效評估制度</a></li>
+        </ul>
+        <div class="sidebar__nav-label" style="margin-top:1rem;">2026 專案執行</div>
+        <ul class="sidebar__nav-list">
+          <li class="sidebar__nav-item sidebar__nav-group">
+            <a href="#" onclick="toggleDelivery(event)">
+              <span class="sidebar__nav-icon"></span>
+              2026專案執行交付
+              <span id="deliveryArrow" style="margin-left:auto;font-size:0.65rem;transition:transform 0.25s;">▼</span>
+            </a>
+            <ul class="sidebar__sub-list " id="deliverySubmenu">
+              <li class="sidebar__sub-item "><a href="delivery-plan.html"><span class="sidebar__sub-dot"></span>專案規劃</a></li>
+              <li class="sidebar__sub-item "><a href="delivery-report.html"><span class="sidebar__sub-dot"></span>執行報告</a></li>
+              <li class="sidebar__sub-item "><a href="delivery-minutes.html"><span class="sidebar__sub-dot"></span>輔導／會議記錄</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
   <div class="sidebar__footer">
     <span class="sidebar__footer-win">WIN WIN</span>
     &copy; 2026 上允科技管理顧問有限公司
@@ -824,13 +839,15 @@ function updateNav(moduleId) {
     }
   </script>
 
-  <script>
+    <script>
     function toggleDelivery(e) {
       e.preventDefault();
       var menu = document.getElementById('deliverySubmenu');
       var arrow = document.getElementById('deliveryArrow');
+      if (!menu) return;
+      var isOpen = menu.classList.contains('open');
       menu.classList.toggle('open');
-      arrow.style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+      arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
     }
   </script>
 </body>
