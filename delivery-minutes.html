@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HR輔導專案｜上允科技管理顧問</title>
+  <title>輔導／會議記錄｜HR輔導專案</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -86,6 +86,13 @@
     .sidebar__sub-item a:hover { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.05); }
     .sidebar__sub-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.25); flex-shrink: 0; }
   </style>
+  <style>
+    .page-coming { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; min-height:500px; color:var(--gray); gap:1rem; }
+    .page-coming .icon { font-size:3.5rem; opacity:0.4; }
+    .page-coming h2 { font-size:1.3rem; color:var(--dark); font-weight:600; margin:0; }
+    .page-coming p { font-size:0.9rem; opacity:0.7; text-align:center; max-width:360px; line-height:1.7; margin:0; }
+    .sidebar__sub-item a.active-sub { color:var(--white) !important; background:rgba(201,162,39,0.15) !important; border-left-color:var(--gold) !important; }
+  </style>
 </head>
 <body>
   <div class="layout">
@@ -121,7 +128,7 @@
             <ul class="sidebar__sub-list" id="deliverySubmenu">
               <li class="sidebar__sub-item"><a href="delivery-plan.html"><span class="sidebar__sub-dot"></span>專案規劃</a></li>
               <li class="sidebar__sub-item"><a href="delivery-report.html"><span class="sidebar__sub-dot"></span>執行報告</a></li>
-              <li class="sidebar__sub-item"><a href="delivery-minutes.html"><span class="sidebar__sub-dot"></span>輔導／會議記錄</a></li>
+              <li class="sidebar__sub-item"><a href="delivery-minutes.html" class="active-sub"><span class="sidebar__sub-dot"></span>輔導／會議記錄</a></li>
             </ul>
           </li>
         </ul>
@@ -149,130 +156,42 @@
         </button>
       </div>
     </aside>
-    <main class="main">
-      <section class="hero">
-        <div class="hero__grid" aria-hidden="true"></div>
-        <div class="hero__glow" aria-hidden="true"></div>
-        <div class="hero__glow-gold" aria-hidden="true"></div>
-        <div class="hero__content">
-          <div class="hero__badges">
-            <span class="hero__badge"><span class="hero__badge-dot"></span>HR Tech Consulting</span>
-            <span class="hero__badge">Professional Program</span>
-          </div>
-          <h1 class="hero__title fade-in fade-in--delay-1"><span class="hero__title-accent">HR輔導專案</span></h1>
-          <p class="hero__subtitle fade-in fade-in--delay-2">從組織設計到績效制度，打造企業核心競爭力</p>
-          <p class="hero__intro fade-in fade-in--delay-3">本輔導專案以系統性架構，以組織診斷方式，透過問卷及訪談方式，在盤點組織現況後，梳理現況及問題，據以協助重新規劃組織架構、工作職掌及職權定義，搭配 WTW 職位體系設計及薪酬策略制定，從而建立完善的組織架構。同時，協助信紘科技將組織落地，建立制度／規則／規章／辦法，盤點系統／流程及表單，站在全球化的視野上，連結組織—核決權限—薪酬—績效管理制度四大核心模組，結合上允科技管理顧問的實務方法論，重塑信紘科技人力資源管理價值，為組織注入持續成長的動能。</p>
-          <div class="hero__hr-tags">
-            <span class="hero__hr-tag">組織架構</span>
-            <span class="hero__hr-tag">職位體系</span>
-            <span class="hero__hr-tag">薪酬策略</span>
-            <span class="hero__hr-tag">績效管理</span>
-          </div>
-          <a href="organization-management.html" class="hero__cta fade-in fade-in--delay-4">開始第一課程<span class="hero__cta-arrow" aria-hidden="true">→</span></a>
-          <div class="hero__metrics fade-in fade-in--delay-5">
-            <div class="hero__metric"><div class="hero__metric-value"><span class="counter" data-target="15" data-suffix="+">0</span></div><div class="hero__metric-label">跨國經驗</div></div>
-            <div class="hero__metric"><div class="hero__metric-value"><span class="counter" data-target="20" data-suffix=" 個">0</span></div><div class="hero__metric-label">課程模組</div></div>
-            <div class="hero__metric"><div class="hero__metric-value"><span class="counter" data-target="25" data-suffix="+ 年">0</span></div><div class="hero__metric-label">產官學研專業經驗</div></div>
-          </div>
-        </div>
-        <div class="hero__illustration" aria-hidden="true">
-          <svg viewBox="0 0 500 440" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1a3a5c"/><stop offset="100%" stop-color="#2a5a8c"/></linearGradient>
-              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#e8c84a"/><stop offset="100%" stop-color="#c9a227"/></linearGradient>
-              <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#e8f0f8"/><stop offset="100%" stop-color="#fdf6e3"/></linearGradient>
-              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#1a3a5c" flood-opacity="0.12"/></filter>
-            </defs>
-            <circle cx="250" cy="220" r="200" fill="url(#bgGrad)" opacity="0.5"/>
-            <circle cx="250" cy="220" r="180" stroke="#1a3a5c" stroke-width="0.8" stroke-opacity="0.07" fill="none"/>
-            <circle cx="250" cy="220" r="150" stroke="#c9a227" stroke-width="0.8" stroke-opacity="0.12" fill="none" stroke-dasharray="5 4"/>
-            <g opacity="0.25"><circle cx="80" cy="80" r="2" fill="#1a3a5c"/><circle cx="420" cy="70" r="2" fill="#c9a227"/><circle cx="60" cy="350" r="2" fill="#1a3a5c"/><circle cx="440" cy="360" r="2" fill="#c9a227"/><circle cx="250" cy="30" r="2" fill="#1a3a5c"/><circle cx="250" cy="410" r="2" fill="#c9a227"/></g>
-            <g filter="url(#softShadow)"><polygon points="250,55 275,69 275,97 250,111 225,97 225,69" fill="url(#goldGrad)"/><polygon points="250,62 268,72 268,94 250,104 232,94 232,72" fill="#1a3a5c" opacity="0.15"/></g>
-            <line class="svg-draw-line svg-draw-line--d1" pathLength="1" x1="250" y1="111" x2="250" y2="145" stroke="#1a3a5c" stroke-width="2" stroke-opacity="0.3"/>
-            <line class="svg-draw-line svg-draw-line--d2" pathLength="1" x1="250" y1="145" x2="130" y2="185" stroke="#1a3a5c" stroke-width="1.8" stroke-opacity="0.28"/>
-            <line class="svg-draw-line svg-draw-line--d3" pathLength="1" x1="250" y1="145" x2="370" y2="185" stroke="#1a3a5c" stroke-width="1.8" stroke-opacity="0.28"/>
-            <line class="svg-draw-line svg-draw-line--d4" pathLength="1" x1="130" y1="185" x2="130" y2="225" stroke="#1a3a5c" stroke-width="1.5" stroke-opacity="0.22"/>
-            <line class="svg-draw-line svg-draw-line--d5" pathLength="1" x1="370" y1="185" x2="370" y2="225" stroke="#1a3a5c" stroke-width="1.5" stroke-opacity="0.22"/>
-            <line class="svg-draw-line svg-draw-line--d6" pathLength="1" x1="130" y1="225" x2="80" y2="275" stroke="#1a3a5c" stroke-width="1.2" stroke-opacity="0.18"/>
-            <line class="svg-draw-line svg-draw-line--d7" pathLength="1" x1="130" y1="225" x2="180" y2="275" stroke="#1a3a5c" stroke-width="1.2" stroke-opacity="0.18"/>
-            <line class="svg-draw-line svg-draw-line--d8" pathLength="1" x1="370" y1="225" x2="320" y2="275" stroke="#1a3a5c" stroke-width="1.2" stroke-opacity="0.18"/>
-            <line class="svg-draw-line svg-draw-line--d9" pathLength="1" x1="370" y1="225" x2="420" y2="275" stroke="#1a3a5c" stroke-width="1.2" stroke-opacity="0.18"/>
-            <line class="svg-draw-line svg-draw-line--d2 svg-draw-line--gold" pathLength="1" x1="130" y1="185" x2="370" y2="185" stroke-width="1.5"/>
-            <line class="svg-draw-line svg-draw-line--d7 svg-draw-line--gold" pathLength="1" x1="180" y1="275" x2="320" y2="275" stroke-width="1.2"/>
-            <g filter="url(#softShadow)"><polygon points="130,200 143,208 143,222 130,230 117,222 117,208" fill="url(#blueGrad)"/><polygon points="370,200 383,208 383,222 370,230 357,222 357,208" fill="url(#blueGrad)"/></g>
-            <circle cx="130" cy="210" r="5" fill="white" opacity="0.85"/>
-            <path d="M123 220 Q130 216 137 220" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-            <circle cx="370" cy="210" r="5" fill="white" opacity="0.85"/>
-            <path d="M363 220 Q370 216 377 220" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-            <g filter="url(#softShadow)">
-              <circle cx="80" cy="288" r="13" fill="#e8f0f8" stroke="#1a3a5c" stroke-width="1.8"/>
-              <circle cx="180" cy="288" r="13" fill="#e8f0f8" stroke="#1a3a5c" stroke-width="1.8"/>
-              <circle cx="320" cy="288" r="13" fill="#e8f0f8" stroke="#1a3a5c" stroke-width="1.8"/>
-              <circle cx="420" cy="288" r="13" fill="#e8f0f8" stroke="#1a3a5c" stroke-width="1.8"/>
-            </g>
-            <circle cx="80" cy="284" r="4" fill="#1a3a5c" opacity="0.55"/>
-            <circle cx="180" cy="284" r="4" fill="#1a3a5c" opacity="0.55"/>
-            <circle cx="320" cy="284" r="4" fill="#1a3a5c" opacity="0.55"/>
-            <circle cx="420" cy="284" r="4" fill="#1a3a5c" opacity="0.55"/>
-            <g filter="url(#softShadow)">
-              <rect x="175" y="325" width="150" height="80" rx="8" fill="white" stroke="#1a3a5c" stroke-width="1.2" stroke-opacity="0.15"/>
-              <rect x="185" y="335" width="60" height="5" rx="2.5" fill="#1a3a5c" opacity="0.2"/>
-              <rect x="185" y="348" width="130" height="3" rx="1.5" fill="#e8edf2"/>
-              <rect x="185" y="356" width="100" height="3" rx="1.5" fill="#e8edf2"/>
-              <rect x="185" y="375" width="12" height="20" rx="2" fill="#1a3a5c" opacity="0.25"/>
-              <rect x="202" y="368" width="12" height="27" rx="2" fill="url(#blueGrad)" opacity="0.7"/>
-              <rect x="219" y="372" width="12" height="23" rx="2" fill="#1a3a5c" opacity="0.35"/>
-              <rect x="236" y="363" width="12" height="32" rx="2" fill="url(#goldGrad)" opacity="0.8"/>
-              <rect x="253" y="370" width="12" height="25" rx="2" fill="#1a3a5c" opacity="0.3"/>
-              <circle cx="295" cy="385" r="16" stroke="#e8edf2" stroke-width="3" fill="none"/>
-              <circle cx="295" cy="385" r="16" stroke="url(#goldGrad)" stroke-width="3" fill="none" stroke-dasharray="75 100" stroke-linecap="round" transform="rotate(-90 295 385)"/>
-              <text x="295" y="389" text-anchor="middle" font-size="9" font-weight="700" fill="#1a3a5c">87%</text>
-            </g>
-            <line class="svg-draw-line svg-draw-line--d10 svg-draw-line--gold" pathLength="1" x1="250" y1="305" x2="250" y2="325" stroke-width="2"/>
-            <polygon points="250,55 275,69 275,97 250,111 225,97 225,69" stroke="#c9a227" stroke-width="1" fill="none" opacity="0.4" transform-origin="250 83">
-              <animateTransform attributeName="transform" type="scale" values="1;1.15;1" dur="3s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite"/>
-            </polygon>
-          </svg>
-        </div>
-      </section>
-      <div class="stats-bar">
-        <div class="stats-bar__item"><div class="stats-bar__number">6</div><div class="stats-bar__label">核心課程模組</div></div>
-        <div class="stats-bar__item"><div class="stats-bar__number">40+</div><div class="stats-bar__label">實務案例解析</div></div>
-        <div class="stats-bar__item"><div class="stats-bar__number">100%</div><div class="stats-bar__label">企業實戰導向</div></div>
+    <main class="main" style="display:flex; align-items:center; justify-content:center;">
+      <div class="page-coming">
+        <div class="icon">📝</div>
+        <h2>輔導／會議記錄</h2>
+        <p>2026 MEETING RECORDS<br>此頁面內容建置中，請稍後查看。</p>
       </div>
     </main>
   </div>
-  <script>
-    (function(){
-      var DURATION=2000;
-      function easeOutCubic(t){return 1-Math.pow(1-t,3);}
-      function runCounters(){
-        document.querySelectorAll('.counter').forEach(function(el){
-          var target=parseInt(el.dataset.target,10);
-          var suffix=el.dataset.suffix||'';
-          var startTime=null;
-          function tick(timestamp){
-            if(!startTime)startTime=timestamp;
-            var progress=Math.min((timestamp-startTime)/DURATION,1);
-            var value=Math.round(target*easeOutCubic(progress));
-            el.textContent=value+suffix;
-            if(progress<1)requestAnimationFrame(tick);
-          }
-          requestAnimationFrame(tick);
-        });
-      }
-      function init(){setTimeout(runCounters,1000);}
-      if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
-    })();
-  </script>
-
   <script>
     (function(){
       if (sessionStorage.getItem('trusval_auth') !== 'ok') {
         window.location.href = 'login.html';
       }
     })();
+  </script>
+  <script>
+    function doLogout() {
+      sessionStorage.removeItem('trusval_auth');
+      window.location.href = 'login.html';
+    }
+    function toggleDelivery(e) {
+      e.preventDefault();
+      var menu = document.getElementById('deliverySubmenu');
+      var arrow = document.getElementById('deliveryArrow');
+      menu.classList.toggle('open');
+      arrow.style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+    // Auto-open delivery submenu on these pages
+    window.addEventListener('DOMContentLoaded', function() {
+      var menu = document.getElementById('deliverySubmenu');
+      var arrow = document.getElementById('deliveryArrow');
+      if (menu) {
+        menu.classList.add('open');
+        if (arrow) arrow.style.transform = 'rotate(180deg)';
+      }
+    });
   </script>
 </body>
 </html>

@@ -178,15 +178,6 @@
   .kpi-card:nth-child(6)::before { background: linear-gradient(90deg,#1a6a7a,#2aaaba); }
 
 </style>
-
-  <script>
-    // 驗證登入狀態，未登入跳回登入頁
-    (function(){
-      if (sessionStorage.getItem('trusval_auth') !== 'ok') {
-        window.location.href = 'login.html';
-      }
-    })();
-  </script>
 </head>
 <body>
 
@@ -638,9 +629,27 @@ function updateNav(moduleId) {
 </script>
 
   <script>
+    (function(){
+      if (sessionStorage.getItem('trusval_auth') !== 'ok') {
+        window.location.href = 'login.html';
+      }
+    })();
+  </script>
+
+  <script>
     function doLogout() {
       sessionStorage.removeItem('trusval_auth');
       window.location.href = 'login.html';
+    }
+  </script>
+
+  <script>
+    function toggleDelivery(e) {
+      e.preventDefault();
+      var menu = document.getElementById('deliverySubmenu');
+      var arrow = document.getElementById('deliveryArrow');
+      menu.classList.toggle('open');
+      arrow.style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
     }
   </script>
 </body>

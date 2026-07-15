@@ -107,15 +107,6 @@
     @media (max-width: 900px) { .cards-grid { grid-template-columns: 1fr; } .module-content { padding: 2rem 1.5rem; } }
     @media (max-width: 768px) { .sidebar { position: relative; width: 100%; min-height: auto; } .layout { flex-direction: column; } .main { margin-left: 0; } }
 </style>
-
-  <script>
-    // 驗證登入狀態，未登入跳回登入頁
-    (function(){
-      if (sessionStorage.getItem('trusval_auth') !== 'ok') {
-        window.location.href = 'login.html';
-      }
-    })();
-  </script>
 </head>
 <body>
   <div class="layout">
@@ -206,9 +197,20 @@
   </div>
 
   <script>
-    function doLogout() {
-      sessionStorage.removeItem('trusval_auth');
-      window.location.href = 'login.html';
+    (function(){
+      if (sessionStorage.getItem('trusval_auth') !== 'ok') {
+        window.location.href = 'login.html';
+      }
+    })();
+  </script>
+
+  <script>
+    function toggleDelivery(e) {
+      e.preventDefault();
+      var menu = document.getElementById('deliverySubmenu');
+      var arrow = document.getElementById('deliveryArrow');
+      menu.classList.toggle('open');
+      arrow.style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
     }
   </script>
 </body>
