@@ -14,7 +14,7 @@
     }
     html, body { height: 100%; font-family: "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; background-color: var(--white); color: var(--blue); -webkit-font-smoothing: antialiased; }
     .layout { display: flex; min-height: 100vh; }
-    .sidebar { width: var(--sidebar-width); min-height: 100vh; background: linear-gradient(180deg, #1a3a5c 0%, #142e4a 100%); color: var(--white); display: flex; flex-direction: column; flex-shrink: 0; position: fixed; top: 0; left: 0; bottom: 0; z-index: 100; overflow: hidden; }
+    .sidebar { width: var(--sidebar-width); min-height: 100vh; background: linear-gradient(180deg, #1a3a5c 0%, #142e4a 100%); color: var(--white); display: flex; flex-direction: column; flex-shrink: 0; position: fixed; top: 0; left: 0; bottom: 0; z-index: 100; overflow-y: auto; overflow-x: hidden; }
     .sidebar__grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none; }
     .sidebar::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%); z-index: 2; }
     .sidebar__brand { padding: 1.5rem 1.25rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; z-index: 1; }
@@ -245,36 +245,31 @@
       </div>
     </main>
   </div>
-  <script>
-    (function(){
-      var DURATION=2000;
-      function easeOutCubic(t){return 1-Math.pow(1-t,3);}
-      function runCounters(){
-        document.querySelectorAll('.counter').forEach(function(el){
-          var target=parseInt(el.dataset.target,10);
-          var suffix=el.dataset.suffix||'';
-          var startTime=null;
-          function tick(timestamp){
-            if(!startTime)startTime=timestamp;
-            var progress=Math.min((timestamp-startTime)/DURATION,1);
-            var value=Math.round(target*easeOutCubic(progress));
-            el.textContent=value+suffix;
-            if(progress<1)requestAnimationFrame(tick);
-          }
-          requestAnimationFrame(tick);
-        });
-      }
-      function init(){setTimeout(runCounters,1000);}
-      if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
-    })();
-  </script>
 
   <script>
+    // 登入驗證
     (function(){
       if (sessionStorage.getItem('trusval_auth') !== 'ok') {
         window.location.href = 'login.html';
       }
     })();
+  </script>
+  <script>
+    // 登出
+    function doLogout() {
+      sessionStorage.removeItem('trusval_auth');
+      window.location.href = 'login.html';
+    }
+    // 展開/收合子選單
+    function toggleDelivery(e) {
+      e.preventDefault();
+      var menu = document.getElementById('deliverySubmenu');
+      var arrow = document.getElementById('deliveryArrow');
+      if (!menu) return;
+      var isOpen = menu.classList.contains('open');
+      menu.classList.toggle('open');
+      if (arrow) arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
   </script>
 </body>
 </html>

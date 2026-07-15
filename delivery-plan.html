@@ -14,7 +14,7 @@
     }
     html, body { height: 100%; font-family: "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; background-color: var(--white); color: var(--blue); -webkit-font-smoothing: antialiased; }
     .layout { display: flex; min-height: 100vh; }
-    .sidebar { width: var(--sidebar-width); min-height: 100vh; background: linear-gradient(180deg, #1a3a5c 0%, #142e4a 100%); color: var(--white); display: flex; flex-direction: column; flex-shrink: 0; position: fixed; top: 0; left: 0; bottom: 0; z-index: 100; overflow: hidden; }
+    .sidebar { width: var(--sidebar-width); min-height: 100vh; background: linear-gradient(180deg, #1a3a5c 0%, #142e4a 100%); color: var(--white); display: flex; flex-direction: column; flex-shrink: 0; position: fixed; top: 0; left: 0; bottom: 0; z-index: 100; overflow-y: auto; overflow-x: hidden; }
     .sidebar__grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none; }
     .sidebar::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%); z-index: 2; }
     .sidebar__brand { padding: 1.5rem 1.25rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; z-index: 1; }
@@ -165,7 +165,9 @@
       </div>
     </main>
   </div>
+
   <script>
+    // 登入驗證
     (function(){
       if (sessionStorage.getItem('trusval_auth') !== 'ok') {
         window.location.href = 'login.html';
@@ -173,26 +175,21 @@
     })();
   </script>
   <script>
+    // 登出
     function doLogout() {
       sessionStorage.removeItem('trusval_auth');
       window.location.href = 'login.html';
     }
+    // 展開/收合子選單
     function toggleDelivery(e) {
       e.preventDefault();
       var menu = document.getElementById('deliverySubmenu');
       var arrow = document.getElementById('deliveryArrow');
+      if (!menu) return;
+      var isOpen = menu.classList.contains('open');
       menu.classList.toggle('open');
-      arrow.style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+      if (arrow) arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
     }
-    // Auto-open delivery submenu on these pages
-    window.addEventListener('DOMContentLoaded', function() {
-      var menu = document.getElementById('deliverySubmenu');
-      var arrow = document.getElementById('deliveryArrow');
-      if (menu) {
-        menu.classList.add('open');
-        if (arrow) arrow.style.transform = 'rotate(180deg)';
-      }
-    });
   </script>
 </body>
 </html>
