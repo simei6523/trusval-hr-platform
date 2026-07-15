@@ -196,10 +196,10 @@
             <span class="hero__hr-tag">薪酬策略</span>
             <span class="hero__hr-tag">績效管理</span>
           </div>
-          <a href="organization-management.html" class="hero__cta fade-in fade-in--delay-4">開始第一課程<span class="hero__cta-arrow" aria-hidden="true">→</span></a>
+          <a href="organization-management.html" class="hero__cta fade-in fade-in--delay-4">開始專案模組內容學習<span class="hero__cta-arrow" aria-hidden="true">→</span></a>
           <div class="hero__metrics fade-in fade-in--delay-5">
             <div class="hero__metric"><div class="hero__metric-value"><span class="counter" data-target="15" data-suffix="+">0</span></div><div class="hero__metric-label">跨國經驗</div></div>
-            <div class="hero__metric"><div class="hero__metric-value"><span class="counter" data-target="20" data-suffix=" 個">0</span></div><div class="hero__metric-label">課程模組</div></div>
+            <div class="hero__metric"><div class="hero__metric-value"><span class="counter" data-target="20" data-suffix=" 個">0</span></div><div class="hero__metric-label">專案模組</div></div>
             <div class="hero__metric"><div class="hero__metric-value"><span class="counter" data-target="25" data-suffix="+ 年">0</span></div><div class="hero__metric-label">產官學研專業經驗</div></div>
           </div>
         </div>
@@ -320,6 +320,29 @@
       menu.classList.toggle('open');
       if (arrow) arrow.textContent = isOpen ? '▼' : '▲';
     }
+  </script>
+  <script>
+    (function(){
+      var DURATION=2000;
+      function easeOutCubic(t){return 1-Math.pow(1-t,3);}
+      function runCounters(){
+        document.querySelectorAll('.counter').forEach(function(el){
+          var target=parseInt(el.dataset.target,10);
+          var suffix=el.dataset.suffix||'';
+          var startTime=null;
+          function tick(timestamp){
+            if(!startTime)startTime=timestamp;
+            var progress=Math.min((timestamp-startTime)/DURATION,1);
+            var value=Math.round(target*easeOutCubic(progress));
+            el.textContent=value+suffix;
+            if(progress<1)requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+      function init(){setTimeout(runCounters,1000);}
+      if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+    })();
   </script>
 </body>
 </html>
